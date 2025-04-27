@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- <h1>Life is circle</h1> -->
+    <header>
+      <svg viewBox="0 0 300 300" id="circularRotatingSvg">
+        <!-- Circular path -->
+        <defs>
+          <path
+            id="circlePath"
+            d="M 150,150
+                   m -100,0
+                   a 100,100 0 1,1 200,0
+                   a 100,100 0 1,1 -200,0"
+          />
+        </defs>
+
+        <!-- Text on the path -->
+        <text>
+          <textPath href="#circlePath" startOffset="0%">
+            LIFE . IS . CIRCLE . BY . NATURE
+          </textPath>
+        </text>
+      </svg>
+    </header>
+    <section class="life-moto">
+      <h1>Life</h1>
+      <img src="./../../images/hour-glass.jpg" class="hour-glass autoRotate" />
+      <h1>Goes On</h1>
+    </section>
+    <section class="life-moto">
+      <h2 class="fadeIn">It sprons</h2>
+      <h2 class="fadeOut">And fades</h2>
+    </section>
+  </body>
+</html>

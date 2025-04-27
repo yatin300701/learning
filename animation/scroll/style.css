@@ -1,0 +1,90 @@
+body {
+  --background: #0c0c0c;
+  --foreground: #f0f0f0;
+
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+header svg {
+  width: 150px;
+  height: 150px;
+  animation: rotate 10s linear infinite;
+}
+
+header svg text {
+  fill: var(--foreground);
+  font-size: 24px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.hour-glass {
+  width: 400px;
+}
+
+.autoRotate {
+  animation: autoRotate;
+  animation-timeline: view();
+}
+
+@keyframes autoRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+.life-moto {
+  display: flex;
+  flex-direction: column;
+  gap: 150px;
+}
+
+.life-moto h1 {
+  font-size: 40px;
+}
+
+.life-moto h2 {
+  font-size: 30px;
+}
+
+.fadeIn {
+  animation: fadeInElement;
+  animation-timeline: view(70% 40%);
+}
+
+@keyframes fadeInElement {
+  from {
+    opacity: 0;
+    transform: translateY(200px) scale(0.1);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
