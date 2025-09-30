@@ -371,4 +371,52 @@ function printAll(strs: string | string[] | null) {
 }
 ```
 
-**_ Truthiness is convenient, but avoid overusing it — always consider edge cases like "" or 0. _**
+** Truthiness is convenient, but avoid overusing it — always consider edge cases like "" or 0. **
+
+### Note
+
+- value == null is equivalent to value === null || value === undefined.
+- value == undefined is equivalent to value === undefined || value === null
+
+## In Oprator Narrowing
+
+JavaScript has the in operator to check whether an object (or its prototype chain) has a property with a given name:
+
+```ts
+"propName" in obj;
+```
+
+Even if a property is optional (value?: number), "value" in x is true when the key exists, even if the runtime value is undefined:
+
+```ts
+const y: { value?: number } = {};
+console.log("value" in y); // true
+```
+
+## `instanceof` Narrowing
+
+- In JavaScript, the `instanceof` operator checks whether an object’s prototype chain contains the prototype property of a constructor.
+
+```ts
+x instanceof Foo;
+```
+
+This returns true if x is an instance of Foo, meaning Foo.prototype appears in x’s prototype chain.
+
+```ts
+function logValue(x: Date | string) {
+  if (x instanceof Date) {
+    console.log(x.toUTCString());
+    // (parameter) x: Date
+  } else {
+    console.log(x.toUpperCase());
+    // (parameter) x: string
+  }
+}
+```
+
+### Note
+
+- Works only with values created by constructors (new), e.g., Date, Error, custom classes.
+- Doesn’t work with primitives (string, number, etc.).
+- Useful when you need to distinguish between class-based objects.
